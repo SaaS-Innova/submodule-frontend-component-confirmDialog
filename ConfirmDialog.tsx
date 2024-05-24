@@ -1,5 +1,4 @@
 import { Dialog } from "primereact/dialog";
-import React from "react";
 import { useTranslation } from "react-i18next";
 import AppButton from "../button/AppButton";
 import { IConfirmDialog } from "./confirmDialog.model";
@@ -33,7 +32,7 @@ export const ConfirmDialog = (props: IConfirmDialog) => {
       />
       <AppButton
         type={"Check"}
-        label={t("components.button.name.confirm")}
+        label={`${t("components.button.name.confirm")}`}
         onClick={() => onConfirm()}
       />
     </>
