@@ -13,6 +13,8 @@ export const ConfirmDialog = (props: IConfirmDialog) => {
     confirmDialogHeader,
     type = "Delete",
     onClosed,
+    disabled = false,
+    onCanceled,
   } = props;
   let header = "";
   let text = "";
@@ -28,12 +30,13 @@ export const ConfirmDialog = (props: IConfirmDialog) => {
       <AppButton
         type={"Cancel"}
         label={`${t("components.button.name.cancel")}`}
-        onClick={hideDialog}
+        onClick={onCanceled ?? hideDialog}
       />
       <AppButton
         type={"Check"}
         label={`${t("components.button.name.confirm")}`}
         onClick={() => onConfirm()}
+        disabled={disabled}
       />
     </>
   );
@@ -48,6 +51,7 @@ export const ConfirmDialog = (props: IConfirmDialog) => {
 
   return (
     <Dialog
+      maximizable
       appendTo="self"
       visible={confirmDialog}
       header={confirmDialogHeader ?? header}

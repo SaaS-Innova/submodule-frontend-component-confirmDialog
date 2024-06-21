@@ -6,4 +6,6 @@ export interface IConfirmDialog {
   confirmDialogHeader?: string;
   type?: string;
   onClosed?: () => void;
+  disabled?: boolean;
+  onCanceled?: () => void;
 }
