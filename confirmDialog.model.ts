@@ -8,4 +8,5 @@ export interface IConfirmDialog {
   onClosed?: () => void;
   disabled?: boolean;
   onCanceled?: () => void;
+  icon?: string;
 }

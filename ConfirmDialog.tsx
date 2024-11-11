@@ -15,10 +15,10 @@ export const ConfirmDialog = (props: IConfirmDialog) => {
     onClosed,
     disabled = false,
     onCanceled,
+    icon,
   } = props;
   let header = "";
   let text = "";
-  let icon = "";
   let className = "";
 
   const hideDialog = () => {
@@ -45,7 +45,6 @@ export const ConfirmDialog = (props: IConfirmDialog) => {
   if (type === "Delete") {
     header = t("components.confirmDialog.header");
     text = t("components.confirmDialog.text");
-    icon = "pi pi-exclamation-triangle";
     className = "flex align-items-center justify-content-center";
   }
 
@@ -57,10 +56,9 @@ export const ConfirmDialog = (props: IConfirmDialog) => {
       header={confirmDialogHeader ?? header}
       modal
       footer={DialogFooter}
-      onHide={hideDialog}
-    >
+      onHide={hideDialog}>
       <div className={`${className}`}>
-        <i className={`${icon}`} />
+        {icon && <i className={`${icon}`} />}
         <span> {confirmDialogText ?? text}</span>
       </div>
     </Dialog>
