@@ -16,6 +16,7 @@ export const ConfirmDialog = (props: IConfirmDialog) => {
     disabled = false,
     onCanceled,
     icon,
+    objectHeader,
   } = props;
   let header = "";
   let text = "";
@@ -43,8 +44,14 @@ export const ConfirmDialog = (props: IConfirmDialog) => {
 
   // Determine header, text, icon, and className based on type
   if (type === "Delete") {
-    header = t("components.confirmDialog.header");
-    text = t("components.confirmDialog.text");
+    header = t("components.confirmDialog.header", {
+      action: t("components.confirmDialog.actions.delete"),
+      objectHeader: objectHeader ? t(objectHeader) : "the record",
+    });
+    text = t("components.confirmDialog.message", {
+      action: t("components.confirmDialog.actions.delete"),
+      objectHeader: objectHeader ? t(objectHeader) : "the record",
+    });
     className = "flex align-items-center justify-content-center";
   }
 
@@ -56,7 +63,8 @@ export const ConfirmDialog = (props: IConfirmDialog) => {
       header={confirmDialogHeader ?? header}
       modal
       footer={DialogFooter}
-      onHide={hideDialog}>
+      onHide={hideDialog}
+    >
       <div className={`${className}`}>
         {icon && <i className={`${icon}`} />}
         <span> {confirmDialogText ?? text}</span>
