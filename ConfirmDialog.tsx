@@ -42,18 +42,19 @@ export const ConfirmDialog = (props: IConfirmDialog) => {
     </>
   );
 
-  // Determine header, text, icon, and className based on type
-  if (type === "Delete") {
-    header = t("components.confirmDialog.header", {
-      action: t("components.confirmDialog.actions.delete"),
-      objectHeader: objectHeader ? t(objectHeader) : "the record",
-    });
-    text = t("components.confirmDialog.message", {
-      action: t("components.confirmDialog.actions.delete"),
-      objectHeader: objectHeader ? t(objectHeader) : "the record",
-    });
-    className = "flex align-items-center justify-content-center";
-  }
+  const actionKey = type.toLowerCase(); // "delete", "archive", etc.
+  const objectName = objectHeader ? t(objectHeader) : "the record";
+
+  header = t("components.confirmDialog.header", {
+    action: t(`components.confirmDialog.actions.${actionKey}`),
+    objectHeader: objectName,
+  });
+
+  text = t("components.confirmDialog.message", {
+    action: t(`components.confirmDialog.actions.${actionKey}`),
+    objectHeader: objectName,
+  });
+  className = "flex align-items-center justify-content-center";
 
   return (
     <Dialog
