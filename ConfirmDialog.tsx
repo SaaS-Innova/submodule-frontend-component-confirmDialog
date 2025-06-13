@@ -17,6 +17,7 @@ export const ConfirmDialog = (props: IConfirmDialog) => {
     onCanceled,
     icon,
     objectHeader,
+    appendTo = "self",
   } = props;
   let header = "";
   let text = "";
@@ -59,7 +60,7 @@ export const ConfirmDialog = (props: IConfirmDialog) => {
   return (
     <Dialog
       maximizable
-      appendTo="self"
+      appendTo={appendTo}
       visible={confirmDialog}
       header={confirmDialogHeader ?? header}
       modal

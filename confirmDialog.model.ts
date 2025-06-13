@@ -10,4 +10,5 @@ export interface IConfirmDialog {
   onCanceled?: () => void;
   icon?: string;
   objectHeader?: string;
+  appendTo?: HTMLElement | "self" | null;
 }
