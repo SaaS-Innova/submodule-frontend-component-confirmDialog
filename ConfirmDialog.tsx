@@ -18,6 +18,7 @@ export const ConfirmDialog = (props: IConfirmDialog) => {
     icon,
     objectHeader,
     appendTo = "self",
+    buttonType = "submit",
   } = props;
   let header = "";
   let text = "";
@@ -39,6 +40,7 @@ export const ConfirmDialog = (props: IConfirmDialog) => {
         label={`${t("components.button.name.confirm")}`}
         onClick={() => onConfirm()}
         disabled={disabled}
+        buttonType={buttonType}
       />
     </>
   );
