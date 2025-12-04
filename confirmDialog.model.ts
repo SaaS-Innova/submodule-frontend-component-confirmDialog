@@ -1,8 +1,9 @@
+import { ReactNode } from "react";
 export interface IConfirmDialog {
   confirmDialog: boolean;
   setConfirmDialog: (data: boolean) => void;
   onConfirm: () => void;
-  confirmDialogText?: string;
+  confirmDialogText?: string | ReactNode;
   confirmDialogHeader?: string;
   type?: string;
   onClosed?: () => void;
