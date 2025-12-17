@@ -19,6 +19,8 @@ export const ConfirmDialog = (props: IConfirmDialog) => {
     objectHeader,
     appendTo = "self",
     buttonType = "submit",
+    cancelButtonLabel,
+    confirmButtonLabel,
   } = props;
   let header = "";
   let text = "";
@@ -32,12 +34,12 @@ export const ConfirmDialog = (props: IConfirmDialog) => {
     <>
       <AppButton
         type={"Cancel"}
-        label={`${t("components.button.name.cancel")}`}
+        label={cancelButtonLabel ?? `${t("components.button.name.cancel")}`}
         onClick={onCanceled ?? hideDialog}
       />
       <AppButton
         type={"Check"}
-        label={`${t("components.button.name.confirm")}`}
+        label={confirmButtonLabel ?? `${t("components.button.name.confirm")}`}
         onClick={() => onConfirm()}
         disabled={disabled}
         buttonType={buttonType}

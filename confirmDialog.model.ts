@@ -13,4 +13,6 @@ export interface IConfirmDialog {
   objectHeader?: string;
   appendTo?: HTMLElement | "self" | null;
   buttonType?: "button" | "submit";
+  cancelButtonLabel?: string;
+  confirmButtonLabel?: string;
 }
